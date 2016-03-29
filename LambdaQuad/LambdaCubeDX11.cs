@@ -91,7 +91,7 @@ namespace LambdaCube.DX11
 	    public DX11.Buffer CBuf;
         public PipelineInput(DX11.Device device)
         {
-
+            
             var stream = new DataStream(3 * 32, true, true);
             stream.WriteRange(new[] {
                 new Vector4(0.0f, 0.5f, 0.5f, 1.0f), new Vector4(1.0f, 0.0f, 0.0f, 1.0f),
@@ -118,7 +118,8 @@ namespace LambdaCube.DX11
                 MostDetailedMip = 0,
                 MipLevels = 1
             };
-            InTexSrv = new ShaderResourceView(device, InTexture, desc);
+            InTexSrv = new ShaderResourceView(device, InTexture, desc); 
+            
 
             var bdesc = new DX11.BufferDescription();
             bdesc.CpuAccessFlags = CpuAccessFlags.Write;
@@ -133,8 +134,7 @@ namespace LambdaCube.DX11
             var i = device.ImmediateContext.MapSubresource(CBuf, MapMode.WriteDiscard, DX11.MapFlags.None);
             i.Data.Write(2.0f);
             device.ImmediateContext.UnmapSubresource(CBuf, 0);
-
-            stream.Dispose();
+            
             vertexBufferBinding = new VertexBufferBinding(vertices, 32, 0);
         }
     }

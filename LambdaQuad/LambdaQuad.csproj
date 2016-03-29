@@ -133,7 +133,6 @@
     <Compile Include="LambdaCubeDX11.cs" />
     <Compile Include="LQNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeIdentity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
